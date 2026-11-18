@@ -82,13 +82,13 @@
   }
 
   // Contact form: validate, then send in the background so visitors stay on the page.
-  // Messages are delivered by FormSubmit to consult@waruinduati.com.
+  // Messages are delivered by FormSubmit to workwithwarui@gmail.com.
   var form = document.getElementById("contact-form");
   if (!form) return;
 
   var status = form.querySelector(".form-status");
   var button = form.querySelector('button[type="submit"]');
-  var fallback = 'Your message didn’t send. Please try again, or email <a href="mailto:consult@waruinduati.com">consult@waruinduati.com</a>.';
+  var fallback = 'Your message didn’t send. Please try again, or email <a href="mailto:workwithwarui@gmail.com">workwithwarui@gmail.com</a>.';
 
   var checks = [
     { id: "f-name", test: function (v) { return v.trim().length > 0; } },
@@ -125,7 +125,7 @@
     button.disabled = true;
     button.textContent = "Sending…";
 
-    fetch("https://formsubmit.co/ajax/consult@waruinduati.com", {
+    fetch("https://formsubmit.co/ajax/workwithwarui@gmail.com", {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify(data)
