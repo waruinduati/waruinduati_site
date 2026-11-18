@@ -131,9 +131,10 @@ p:last-child { margin-bottom: 0; }
 
 /* Hero: left-aligned like the rest of the site, with the avatar as the centrepiece beside the text */
 .hero { padding-block: clamp(2.5rem, 8vh, 5.5rem) clamp(5rem, 12vh, 8.5rem); }
-.hero-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 2rem; align-items: center; }
-.hero-text { grid-column: 1 / span 7; grid-row: 1; }
-.hero-avatar { grid-column: 8 / -1; grid-row: 1; justify-self: end; width: 100%; max-width: 460px; margin: 0; }
+.hero-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: var(--gap); align-content: center; }
+.hero-greeting { grid-column: 1 / span 7; grid-row: 1; align-self: end; }
+.hero-text { grid-column: 1 / span 7; grid-row: 2; align-self: start; }
+.hero-avatar { grid-column: 8 / -1; grid-row: 1 / span 2; align-self: center; justify-self: end; width: 100%; max-width: 460px; margin: 0; }
 .hero-avatar img { width: 100%; height: auto; }
 .hero-greeting { margin: 0 0 1.25rem; font-weight: 500; font-size: clamp(1rem, .95rem + .3vw, 1.1875rem); color: var(--earth); }
 .hero-title {
@@ -331,10 +332,13 @@ p:last-child { margin-bottom: 0; }
 /* Mobile */
 @media (max-width: 760px) {
   body { font-size: 1rem; }
-  .split, .about-grid, .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .split, .about-grid { grid-template-columns: minmax(0, 1fr); }
   .split-head, .split-body, .portrait, .about-copy { grid-column: 1 / -1; }
-  .hero-text { grid-column: 1; grid-row: 2; }
-  .hero-avatar { grid-column: 1; grid-row: 1; justify-self: start; max-width: 240px; }
+  .hero { padding-top: 1.25rem; }
+  .hero-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 1rem; }
+  .hero-greeting { grid-column: 1; grid-row: 1; align-self: center; margin: 0; font-family: var(--serif); font-weight: 300; font-size: clamp(1.375rem, 1rem + 2vw, 1.875rem); line-height: 1.2; }
+  .hero-avatar { grid-column: 2; grid-row: 1; justify-self: end; max-width: 300px; }
+  .hero-text { grid-column: 1 / -1; grid-row: 2; margin-top: 1.75rem; }
   .portrait { max-width: 24rem; }
   .steps { grid-template-columns: minmax(0, 1fr); row-gap: 2.5rem; }
   .service { padding-block: 1.75rem; }
