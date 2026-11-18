@@ -195,8 +195,6 @@ p:last-child { margin-bottom: 0; }
 
 /* Tale of Craft */
 .craft .split-head > p:not(.lede) { color: var(--on-dark-2); }
-.essays-title { font-family: var(--sans); font-weight: 500; font-size: .9375rem; margin-bottom: 1rem; }
-.craft .essays-title { color: var(--on-dark); }
 .craft .lede { color: var(--on-dark-2); max-width: 40rem; }
 .viewer { margin-top: clamp(3rem, 6vw, 4.5rem); }
 .viewer-track {
@@ -214,18 +212,19 @@ p:last-child { margin-bottom: 0; }
 .viewer-btn { min-height: 2.75rem; padding: .5rem 1.1rem; font: 500 .9375rem/1 var(--sans); color: var(--on-dark); background: transparent; border: 1px solid var(--rule-dark); border-radius: 2px; cursor: pointer; transition: border-color .2s ease; }
 .viewer-btn:hover:not([disabled]) { border-color: var(--on-dark-2); }
 .viewer-btn[disabled] { opacity: .4; cursor: default; }
-.craft-foot { margin-top: clamp(4rem, 8vw, 6rem); }
-.craft-foot .file-meta { margin-top: .75rem; color: var(--on-dark-2); }
-.essays { margin: 0; padding: 0; list-style: none; counter-reset: essay; border-top: 1px solid var(--rule-dark); }
-.essays li {
-  counter-increment: essay; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: baseline; column-gap: 1.5rem;
-  padding-block: .9rem; border-bottom: 1px solid var(--rule-dark);
-}
-.essays li::before { content: counter(essay); font-size: .875rem; color: var(--on-dark-2); }
-.essay-name { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--on-dark); }
-a.essay-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; text-decoration-color: var(--rule-dark); }
-a.essay-name:hover { text-decoration-color: var(--on-dark); }
-.essay-topic { font-size: .875rem; color: var(--on-dark-2); text-align: right; }
+/* Two strands of Tale of Craft: volumes (the work) and editions (the thinking) */
+.strand { margin-top: clamp(4.5rem, 9vw, 7rem); padding-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--rule-dark); }
+.strand-title { font-size: clamp(1.875rem, 1.4rem + 1.4vw, 2.625rem); line-height: 1.1; color: var(--on-dark); }
+.strand-kicker { margin: .6rem 0 0; font-size: .9375rem; color: var(--on-dark-2); }
+.strand-head > .split-body { margin: 0; color: var(--on-dark-2); max-width: 40rem; }
+.strand .viewer { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.strand-action { margin-top: 2rem; }
+.edition { margin-top: clamp(2.5rem, 5vw, 3.5rem); padding: 2.25rem 0 0; border-top: 1px solid var(--rule-dark); }
+.edition-title { font-family: var(--serif); font-weight: 300; font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem); line-height: 1.05; color: var(--on-dark); margin: 0 0 1.25rem; text-wrap: balance; }
+.craft .edition-dek { color: var(--on-dark-2); }
+.strand-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; margin-top: 2rem; }
+.craft .text-link { color: var(--on-dark); text-decoration-color: var(--rule-dark); }
+.craft .text-link:hover { color: var(--on-dark); text-decoration-color: var(--on-dark); }
 
 /* About */
 .about-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 3rem; align-items: start; }
@@ -273,15 +272,10 @@ a.essay-name:hover { text-decoration-color: var(--on-dark); }
 .footer-line a:hover { color: var(--cobalt); }
 .footer-meta { margin: 0; font-size: .875rem; color: var(--earth); }
 
-/* Shared file label */
-.file-meta { font-size: .875rem; color: var(--earth); }
 
-/* Writing, linking to Substack */
-.writing-feature { margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: 2.25rem; border-top: 1px solid var(--rule); }
+/* Edition block */
 .edition-number { margin: 0; font-family: var(--serif); font-weight: 300; font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem); line-height: 1; color: var(--orange); }
-.edition-title { font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem); line-height: 1.05; margin-bottom: 1.25rem; }
 .edition-dek { font-size: 1.125rem; max-width: 36rem; }
-.writing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; margin-top: 2rem; }
 
 /* Endorsements (draft until real quotes arrive) */
 [data-draft] { display: none; }
@@ -354,9 +348,6 @@ a.essay-name:hover { text-decoration-color: var(--on-dark); }
   .service { padding-block: 1.75rem; }
   .spread { flex-basis: 92%; }
   .viewer-status { flex-direction: column; gap: .2rem; }
-  .essays li { grid-template-columns: 2rem minmax(0, 1fr); row-gap: .2rem; }
-  .essay-topic { grid-column: 2; text-align: left; }
-  .essay-name { font-size: 1.125rem; }
   .brand img { width: 140px; }
 }
 

@@ -59,8 +59,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#practice">Practice</a></li>
           <li><a href="#approach">Approach</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#writing">Writing</a></li>
+          <li><a href="#tale-of-craft">Tale of Craft</a></li>
           <li><a class="nav-cta" href="#contact">Get in touch</a></li>
         </ul>
       </nav>
@@ -80,7 +79,7 @@
         <div class="hero-body">
           <p class="hero-intro">I’m Warui Nduati, a brand, marketing, and communications strategist and creative director. For more than a decade I’ve built brands, campaigns, and communication systems across media, technology, and social impact.</p>
           <div class="hero-actions">
-            <a class="btn" href="#portfolio">Explore the portfolio</a>
+            <a class="btn" href="#tale-of-craft">Explore the portfolio</a>
             <a class="text-link" href="#contact">Start a conversation</a>
           </div>
         </div>
@@ -201,21 +200,31 @@
       </div>
     </section>
 
-    <!-- Portfolio: a preview of Tale of Craft Volume 5, with one link to the full PDF -->
-    <section class="section craft" id="portfolio" aria-labelledby="craft-title">
+    <!-- Tale of Craft: one series, two strands. Volumes hold the work (portfolio); editions on Substack hold the thinking.
+         When a new volume is out, swap the preview pages and the PDF. When a new edition is out, update the edition block.
+         SUBSTACK: replace https://substack.com/ on the data-substack links with the publication address once confirmed. -->
+    <section class="section craft" id="tale-of-craft" aria-labelledby="craft-title">
       <div class="wrap">
         <div class="split">
           <div class="split-head">
             <h2 id="craft-title">Tale of Craft</h2>
             <span class="rule" aria-hidden="true"></span>
           </div>
-          <div class="split-body">
-            <p class="lede">My portfolio lives in Tale of Craft, a publication series that sets selected projects alongside short essays on staying inside the work. Volume 5 brings together sixteen case studies across seven chapters.</p>
-          </div>
+          <p class="split-body lede">Tale of Craft is where my work and my thinking live together. The volumes collect selected projects as a portfolio. The editions take one idea from that work and think it through, in public.</p>
         </div>
 
-        <div class="viewer" aria-roledescription="carousel" aria-label="Preview of Tale of Craft, Volume 5">
-          <ol class="viewer-track" id="viewer-track" tabindex="0" aria-label="Pages from Volume 5. Scroll sideways or use the arrow buttons.">
+        <!-- Strand 1: volumes, the portfolio -->
+        <div class="strand" id="volumes">
+          <div class="split strand-head">
+            <div class="split-head">
+              <h3 class="strand-title">Volumes</h3>
+              <p class="strand-kicker">The work, collected</p>
+            </div>
+            <p class="split-body">Each volume sets selected projects in brand, narrative, systems, and experience alongside short reflections on how they came to be. Here is a look inside the latest.</p>
+          </div>
+
+          <div class="viewer" aria-roledescription="carousel" aria-label="Preview of the latest volume of Tale of Craft">
+          <ol class="viewer-track" id="viewer-track" tabindex="0" aria-label="Pages from the latest volume. Scroll sideways or use the arrow buttons.">
             <li class="spread" data-label="Cover">
               <img src="assets/img/volume-5/page-01.jpg" alt="Cover of Tale of Craft, Volume 5, by Warui Nduati" width="1440" height="810">
             </li>
@@ -253,56 +262,41 @@
               <img src="assets/img/volume-5/page-34.jpg" alt="Case study: Merch by Auntie Jemimah" width="1440" height="810" loading="lazy">
             </li>
           </ol>
-          <div class="viewer-bar">
-            <p class="viewer-status" aria-live="polite"><span id="viewer-count">1 of 12</span><span class="viewer-label" id="viewer-label">Cover</span></p>
-            <div class="viewer-controls">
-              <button class="viewer-btn" type="button" data-dir="-1" aria-controls="viewer-track" aria-label="Previous page">Previous</button>
-              <button class="viewer-btn" type="button" data-dir="1" aria-controls="viewer-track" aria-label="Next page">Next</button>
+            <div class="viewer-bar">
+              <p class="viewer-status" aria-live="polite"><span id="viewer-count">1 of 12</span><span class="viewer-label" id="viewer-label">Cover</span></p>
+              <div class="viewer-controls">
+                <button class="viewer-btn" type="button" data-dir="-1" aria-controls="viewer-track" aria-label="Previous page">Previous</button>
+                <button class="viewer-btn" type="button" data-dir="1" aria-controls="viewer-track" aria-label="Next page">Next</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="split craft-foot">
-          <div class="split-head">
+          <div class="strand-action">
             <a class="btn btn-light" href="docs/tale-of-craft-volume-5.pdf" target="_blank" rel="noopener">Read the full volume</a>
-            <p class="file-meta">PDF, 14 MB</p>
-          </div>
-          <div class="split-body">
-            <h3 class="essays-title">Inside Volume 5</h3>
-            <ol class="essays">
-              <li><span class="essay-name">When Brand Becomes Power</span><span class="essay-topic">Brand design and development</span></li>
-              <li><span class="essay-name">The Brief Wasn’t the Problem</span><span class="essay-topic">Presentations and profiles</span></li>
-              <li><span class="essay-name">Designing for People Who Will Never Credit You</span><span class="essay-topic">Systems and frameworks</span></li>
-              <li><span class="essay-name">The Story is the Interface</span><span class="essay-topic">Narrative and content strategy</span></li>
-              <li><span class="essay-name">Designing in Motion</span><span class="essay-topic">Events and festivals</span></li>
-              <li><span class="essay-name">Taste Under Constraint</span><span class="essay-topic">Social media content</span></li>
-              <li><span class="essay-name">The Designer as Editor</span><span class="essay-topic">Merchandising</span></li>
-            </ol>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Writing: Tale of Craft continues on Substack.
-         SUBSTACK: replace https://substack.com/ below with the publication address once confirmed. -->
-    <section class="section writing" id="writing" aria-labelledby="writing-title">
-      <div class="wrap">
-        <div class="split">
-          <div class="split-head">
-            <h2 id="writing-title">Writing</h2>
+        <!-- Strand 2: editions, the thinking, published on Substack -->
+        <div class="strand" id="editions">
+          <div class="split strand-head">
+            <div class="split-head">
+              <h3 class="strand-title">Editions</h3>
+              <p class="strand-kicker">The thinking, continued</p>
+            </div>
+            <p class="split-body">A newsletter on strategy, craft, and what it takes to stay inside the work. Each edition starts with a real situation and unpacks the judgment behind it.</p>
           </div>
-          <p class="split-body lede">Tale of Craft continues on Substack, as essays on strategy, craft, and what it takes to stay inside the work. Each edition starts with a real situation and the thinking behind it.</p>
-        </div>
-        <div class="split writing-feature">
-          <div class="split-head">
-            <p class="edition-number">Edition 01</p>
-          </div>
-          <div class="split-body">
-            <h3 class="edition-title">The Long Middle</h3>
-            <p class="edition-dek">Why Tale of Craft exists, and what happens in the stretch between the first idea and mastery, where craft becomes less about expression and more about judgment.</p>
-            <div class="writing-actions">
-              <a class="btn" href="https://substack.com/" target="_blank" rel="noopener" data-substack>Read on Substack</a>
-              <a class="text-link" href="https://substack.com/" target="_blank" rel="noopener" data-substack>Subscribe for new editions</a>
+
+          <div class="split edition">
+            <div class="split-head">
+              <p class="edition-number">Edition 01</p>
+            </div>
+            <div class="split-body">
+              <h4 class="edition-title">The Long Middle</h4>
+              <p class="edition-dek">Why Tale of Craft exists, and what happens in the stretch between the first idea and mastery, where craft becomes less about expression and more about judgment.</p>
+              <div class="strand-actions">
+                <a class="btn btn-light" href="https://substack.com/" target="_blank" rel="noopener" data-substack>Read on Substack</a>
+                <a class="text-link" href="https://substack.com/" target="_blank" rel="noopener" data-substack>Subscribe for new editions</a>
+              </div>
             </div>
           </div>
         </div>
