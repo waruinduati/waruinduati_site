@@ -34,6 +34,53 @@
     });
   }
 
+  // Portfolio preview: swipe or scroll sideways, or use the buttons.
+  var track = document.getElementById("viewer-track");
+  if (track) {
+    var slides = Array.prototype.slice.call(track.children);
+    var countEl = document.getElementById("viewer-count");
+    var labelEl = document.getElementById("viewer-label");
+    var prevBtn = document.querySelector('.viewer-btn[data-dir="-1"]');
+    var nextBtn = document.querySelector('.viewer-btn[data-dir="1"]');
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var index = 0, ticking = false;
+
+    var nearest = function () {
+      var x = track.scrollLeft, best = 0, bestDist = Infinity;
+      slides.forEach(function (s, i) {
+        var d = Math.abs(s.offsetLeft - x);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      // At the far end the last slides may never reach the left edge
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 2) best = slides.length - 1;
+      return best;
+    };
+    var render = function () {
+      index = nearest();
+      countEl.textContent = (index + 1) + " of " + slides.length;
+      labelEl.textContent = slides[index].getAttribute("data-label") || "";
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === slides.length - 1;
+    };
+    var go = function (i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft, behavior: reduce ? "auto" : "smooth" });
+    };
+    [prevBtn, nextBtn].forEach(function (b) {
+      b.addEventListener("click", function () { go(index + Number(b.getAttribute("data-dir"))); });
+    });
+    track.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { render(); ticking = false; });
+    }, { passive: true });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(index + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1); }
+    });
+    render();
+  }
+
   // Contact form: validate, then send in the background so visitors stay on the page.
   // Messages are delivered by FormSubmit to consult@waruinduati.com.
   var form = document.getElementById("contact-form");
