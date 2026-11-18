@@ -129,28 +129,29 @@ p:last-child { margin-bottom: 0; }
 .nav-cta:hover { background: var(--olive); color: var(--on-dark) !important; }
 .nav-toggle { display: none; }
 
-/* Hero */
-.hero { padding-block: clamp(3.5rem, 11vh, 8rem) clamp(5rem, 14vh, 9.5rem); }
-.hero-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: clamp(2.5rem, 5vw, 4.5rem); align-items: start; }
+/* Hero: the avatar is the centrepiece, a welcome into Warui's world */
+.hero { padding-block: clamp(2rem, 6vh, 4rem) clamp(5rem, 12vh, 8.5rem); }
+.hero-center { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hero-avatar { width: clamp(220px, 24vw, 340px); margin: 0 0 clamp(1.5rem, 3vw, 2.25rem); }
+.hero-avatar img { width: 100%; height: auto; }
+.hero-greeting { margin: 0 0 1.25rem; font-weight: 500; font-size: clamp(1rem, .95rem + .3vw, 1.1875rem); color: var(--earth); }
 .hero-title {
-  grid-column: 1 / -1;
-  font-size: clamp(3rem, 1.1rem + 5.8vw, 6.5rem);
-  line-height: 1.03;
-  max-width: 17ch;
+  font-size: clamp(2.5rem, 1.1rem + 4vw, 4.5rem);
+  line-height: 1.04;
+  max-width: 20ch;
 }
-.hero-aside { grid-column: 1 / span 4; padding-top: .55rem; }
-.hero-rule { margin-bottom: 1.5rem; }
-.hero-meta { font-size: 1rem; line-height: 1.55; color: var(--earth); }
-.hero-body { grid-column: 6 / -1; }
-.hero-intro { max-width: 40rem; font-size: clamp(1.125rem, 1rem + .45vw, 1.375rem); line-height: 1.6; }
-.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; margin-top: 2.5rem; }
+.hero-rule { margin-block: clamp(1.75rem, 3.5vw, 2.5rem); }
+.hero-intro { max-width: 40rem; font-size: clamp(1.0625rem, 1rem + .4vw, 1.3125rem); line-height: 1.6; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.25rem 2rem; margin-top: 2.25rem; }
 
-/* The one orchestrated moment: the cover settles in, the orange rule draws across */
+/* The one orchestrated moment: the avatar arrives, the title settles, the orange rule draws across */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-title { animation: settle 1s cubic-bezier(.2,.7,.2,1) both; }
-  .hero-rule { transform-origin: left center; animation: draw .9s cubic-bezier(.6,0,.2,1) .45s both; }
-  .hero-meta, .hero-body { animation: fade .8s ease .8s both; }
+  .hero-avatar img { animation: arrive 1s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-greeting, .hero-title { animation: settle .9s cubic-bezier(.2,.7,.2,1) .35s both; }
+  .hero-rule { transform-origin: center; animation: draw .8s cubic-bezier(.6,0,.2,1) .8s both; }
+  .hero-intro, .hero-actions { animation: fade .8s ease 1.05s both; }
 }
+@keyframes arrive { from { opacity: 0; transform: translateY(16px) scale(.96); } to { opacity: 1; transform: none; } }
 @keyframes settle { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
@@ -212,17 +213,10 @@ p:last-child { margin-bottom: 0; }
 .viewer-btn { min-height: 2.75rem; padding: .5rem 1.1rem; font: 500 .9375rem/1 var(--sans); color: var(--on-dark); background: transparent; border: 1px solid var(--rule-dark); border-radius: 2px; cursor: pointer; transition: border-color .2s ease; }
 .viewer-btn:hover:not([disabled]) { border-color: var(--on-dark-2); }
 .viewer-btn[disabled] { opacity: .4; cursor: default; }
-/* Two strands of Tale of Craft: volumes (the work) and editions (the thinking) */
-.strand { margin-top: clamp(4.5rem, 9vw, 7rem); padding-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--rule-dark); }
-.strand-title { font-size: clamp(1.875rem, 1.4rem + 1.4vw, 2.625rem); line-height: 1.1; color: var(--on-dark); }
-.strand-kicker { margin: .6rem 0 0; font-size: .9375rem; color: var(--on-dark-2); }
-.strand-head > .split-body { margin: 0; color: var(--on-dark-2); max-width: 40rem; }
-.strand .viewer { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
-.strand-action { margin-top: 2rem; }
-.edition { margin-top: clamp(2.5rem, 5vw, 3.5rem); padding: 2.25rem 0 0; border-top: 1px solid var(--rule-dark); }
-.edition-title { font-family: var(--serif); font-weight: 300; font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem); line-height: 1.05; color: var(--on-dark); margin: 0 0 1.25rem; text-wrap: balance; }
-.craft .edition-dek { color: var(--on-dark-2); }
-.strand-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; margin-top: 2rem; }
+.craft-action { margin-top: 2rem; }
+.craft-substack { margin-top: clamp(4rem, 8vw, 5.5rem); padding-top: 2rem; border-top: 1px solid var(--rule-dark); align-items: baseline; }
+.craft-substack-label { margin: 0; font-family: var(--serif); font-weight: 300; font-size: 1.625rem; line-height: 1.2; color: var(--on-dark); }
+.craft-substack .split-body { margin: 0; font-size: 1.0625rem; color: var(--on-dark-2); }
 .craft .text-link { color: var(--on-dark); text-decoration-color: var(--rule-dark); }
 .craft .text-link:hover { color: var(--on-dark); text-decoration-color: var(--on-dark); }
 
@@ -273,9 +267,6 @@ p:last-child { margin-bottom: 0; }
 .footer-meta { margin: 0; font-size: .875rem; color: var(--earth); }
 
 
-/* Edition block */
-.edition-number { margin: 0; font-family: var(--serif); font-weight: 300; font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem); line-height: 1; color: var(--orange); }
-.edition-dek { font-size: 1.125rem; max-width: 36rem; }
 
 /* Endorsements (draft until real quotes arrive) */
 [data-draft] { display: none; }
@@ -339,10 +330,8 @@ p:last-child { margin-bottom: 0; }
 /* Mobile */
 @media (max-width: 760px) {
   body { font-size: 1rem; }
-  .split, .about-grid, .hero-grid { grid-template-columns: minmax(0, 1fr); }
-  .split-head, .split-body, .portrait, .about-copy, .hero-aside, .hero-body { grid-column: 1 / -1; }
-  .hero-grid { row-gap: 2rem; }
-  .hero-aside { padding-top: 0; }
+  .split, .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .split-head, .split-body, .portrait, .about-copy { grid-column: 1 / -1; }
   .portrait { max-width: 24rem; }
   .steps { grid-template-columns: minmax(0, 1fr); row-gap: 2.5rem; }
   .service { padding-block: 1.75rem; }
