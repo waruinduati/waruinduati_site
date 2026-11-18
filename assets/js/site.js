@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  // Draft content (marked data-draft) is hidden by default in CSS.
+  // It only shows away from the live domain, so placeholders never reach visitors.
+  if (!/(^|\.)waruinduati\.com$/.test(location.hostname)) {
+    document.documentElement.classList.add("show-drafts");
+  }
+
   // Year in the footer
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

@@ -195,12 +195,15 @@ p:last-child { margin-bottom: 0; }
 
 /* Tale of Craft */
 .craft .split-head > p:not(.lede) { color: var(--on-dark-2); }
-.craft-action { margin-top: 2rem; }
-.pull-quote { margin: 0 0 clamp(3rem, 6vw, 4.5rem); padding-left: clamp(1.25rem, 2.5vw, 2rem); border-left: 2px solid var(--orange); }
-.pull-quote p { font-family: var(--serif); font-weight: 300; font-size: clamp(1.75rem, 1.2rem + 1.9vw, 2.75rem); line-height: 1.2; color: var(--on-dark); margin-bottom: 1.25rem; text-wrap: balance; }
-.pull-quote footer { font-size: .9375rem; color: var(--on-dark-2); }
 .essays-title { font-family: var(--sans); font-weight: 500; font-size: .9375rem; margin-bottom: 1rem; }
 .craft .essays-title { color: var(--on-dark); }
+.craft-action { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.25rem; margin-top: 2rem; }
+.craft .file-meta { color: var(--on-dark-2); }
+.craft-cover { display: block; align-self: start; }
+.craft-cover img { width: 100%; outline: 1px solid var(--rule-dark); outline-offset: -1px; transition: outline-color .2s ease; }
+.craft-cover:hover img { outline-color: var(--on-dark-2); }
+.craft-inside { margin-top: clamp(4rem, 8vw, 6rem); }
+.craft-inside .split-head p { color: var(--on-dark-2); font-size: .9375rem; max-width: 22rem; }
 .essays { margin: 0; padding: 0; list-style: none; counter-reset: essay; border-top: 1px solid var(--rule-dark); }
 .essays li {
   counter-increment: essay; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: baseline; column-gap: 1.5rem;
@@ -208,6 +211,8 @@ p:last-child { margin-bottom: 0; }
 }
 .essays li::before { content: counter(essay); font-size: .875rem; color: var(--on-dark-2); }
 .essay-name { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--on-dark); }
+a.essay-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; text-decoration-color: var(--rule-dark); }
+a.essay-name:hover { text-decoration-color: var(--on-dark); }
 .essay-topic { font-size: .875rem; color: var(--on-dark-2); text-align: right; }
 
 /* About */
@@ -256,6 +261,59 @@ p:last-child { margin-bottom: 0; }
 .footer-line a:hover { color: var(--cobalt); }
 .footer-meta { margin: 0; font-size: .875rem; color: var(--earth); }
 
+/* Shared file label */
+.file-meta { font-size: .875rem; color: var(--earth); }
+
+/* Notes */
+.note-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+.note-list-home { margin-top: clamp(3.5rem, 7vw, 5.5rem); }
+.note-link { display: flex; flex-direction: column; gap: .75rem; height: 100%; padding-top: 1.75rem; border-top: 1px solid var(--rule); text-decoration: none; color: var(--ink); }
+.note-link-title { font-family: var(--serif); font-weight: 300; font-size: 1.625rem; line-height: 1.2; color: var(--earth); text-wrap: balance; }
+.note-link-excerpt { font-size: 1rem; }
+.note-link-cta { margin-top: auto; padding-top: .5rem; font-weight: 500; font-size: .9375rem; color: var(--earth); text-decoration: underline; text-decoration-color: var(--taupe); text-underline-offset: .3em; }
+.note-link:hover .note-link-cta { color: var(--cobalt); text-decoration-color: var(--cobalt); }
+.note-link:hover .note-link-title { color: var(--olive); }
+
+/* Note pages */
+.note { padding-top: clamp(3rem, 8vh, 6rem); }
+.note-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 2.5rem; }
+.note-head { grid-column: 1 / span 4; }
+.note-head h1 { font-size: clamp(2.5rem, 1.6rem + 3vw, 4rem); line-height: 1.05; }
+.note-head .rule { margin-block: 1.75rem; }
+.note-kicker { font-weight: 500; font-size: .9375rem; color: var(--earth); margin-bottom: 1rem; }
+.note-source { font-size: .9375rem; color: var(--earth); max-width: 18rem; }
+.note-body { grid-column: 6 / -1; max-width: 40rem; }
+.note-body p { font-size: 1.125rem; line-height: 1.75; }
+.note-body .note-pull { font-family: var(--serif); font-weight: 300; font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem); line-height: 1.2; color: var(--earth); margin-bottom: 2rem; text-wrap: balance; }
+.note-body .note-close { font-family: var(--serif); font-weight: 300; font-size: 1.5rem; line-height: 1.3; color: var(--earth); margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.note-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.25rem; margin-top: 3rem; }
+.note-more { padding-block: clamp(5rem, 10vw, 8rem); }
+.note-more-title { font-family: var(--sans); font-weight: 500; font-size: .9375rem; color: var(--ink); margin-bottom: 1.5rem; }
+.note-more .note-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.nav-list-simple { gap: 1.5rem; }
+
+/* Endorsements (draft until real quotes arrive) */
+[data-draft] { display: none; }
+.show-drafts [data-draft] { display: block; }
+.endorsements { background: var(--stone); }
+.draft-banner { margin: 0 0 3rem; padding: .9rem 1.1rem; background: var(--ivory); border-left: 2px solid var(--earth); font-size: .9375rem; color: var(--earth); }
+.quotes { list-style: none; margin: clamp(3.5rem, 7vw, 5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+.quote { border-top: 1px solid var(--taupe); padding-top: 1.75rem; }
+.quote blockquote { margin: 0 0 1.5rem; }
+.quote blockquote p { font-family: var(--serif); font-weight: 300; font-size: 1.375rem; line-height: 1.35; color: var(--earth); }
+.quote-name { margin: 0; font-weight: 500; font-size: .9375rem; }
+.quote-role { margin: 0; font-size: .9375rem; }
+.quote-ask { margin: .75rem 0 0; font-size: .8125rem; font-style: italic; color: var(--earth); }
+
+/* Conversations I welcome */
+.welcome { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.25rem var(--gap); }
+.welcome li { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+.welcome h3 { font-weight: 400; font-size: 1.375rem; line-height: 1.25; margin-bottom: .6rem; }
+.welcome p { font-size: 1rem; }
+.contact-row { margin-top: clamp(4rem, 8vw, 6rem); }
+.contact-subhead { font-weight: 400; font-size: 1.5rem; }
+.contact-row .contact-details { margin-top: 1.5rem; }
+
 /* Simple pages (thanks, 404) */
 .simple { min-height: calc(100vh - 5.5rem); display: grid; align-content: center; padding-block: var(--section); }
 .simple h1 { font-size: clamp(2.5rem, 1.5rem + 4vw, 4.5rem); line-height: 1.05; max-width: 14ch; }
@@ -269,6 +327,10 @@ p:last-child { margin-bottom: 0; }
   .split-head { grid-column: 1 / span 5; }
   .split-body { grid-column: 6 / -1; }
   .service { grid-template-columns: minmax(0, 1fr); }
+  .note-list, .quotes { grid-template-columns: minmax(0, 1fr); row-gap: 2.5rem; }
+  .note-head { grid-column: 1 / span 5; }
+  .note-body { grid-column: 6 / -1; }
+  .welcome { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Collapsed navigation */
@@ -289,6 +351,11 @@ p:last-child { margin-bottom: 0; }
   .nav-list li:last-child { border-bottom: 0; padding-top: 1.25rem; }
   .nav-list a:not(.nav-cta) { display: block; padding: 1rem 0; font-size: 1.0625rem; background: none; }
   .nav-cta { display: flex; justify-content: center; background: var(--olive); color: var(--on-dark) !important; padding: .9rem 1rem; }
+  .nav-list.nav-list-simple { display: flex; position: static; flex-direction: row; align-items: center; gap: 1.25rem; padding: 0; background: none; border: 0; }
+  .nav-list-simple li { border: 0; }
+  .nav-list-simple li:last-child { padding-top: 0; }
+  .nav-list-simple a:not(.nav-cta) { padding: 0; font-size: .9375rem; }
+  .nav-list-simple .nav-cta { display: inline-flex; background: transparent; color: var(--ink) !important; padding: .55rem 1rem; }
 }
 
 /* Mobile */
@@ -301,6 +368,9 @@ p:last-child { margin-bottom: 0; }
   .portrait { max-width: 24rem; }
   .steps { grid-template-columns: minmax(0, 1fr); row-gap: 2.5rem; }
   .service { padding-block: 1.75rem; }
+  .note-grid { grid-template-columns: minmax(0, 1fr); }
+  .note-head, .note-body { grid-column: 1 / -1; }
+  .note-more .note-list { grid-template-columns: minmax(0, 1fr); }
   .essays li { grid-template-columns: 2rem minmax(0, 1fr); row-gap: .2rem; }
   .essay-topic { grid-column: 2; text-align: left; }
   .essay-name { font-size: 1.125rem; }
